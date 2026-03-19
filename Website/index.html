@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smit Joshi · Cloud Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- optional: include any font via Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="resume">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>Smit Joshi</h1>
+            <div class="contact-bar">
+                <span>Markham, ON</span>
+                <span class="separator">|</span>
+                <span>📱 +1 (437) 434-4672</span>
+                <span class="separator">|</span>
+                <span>📧 <a href="mailto:smitmanishbhai@gmail.com">smitmanishbhai@gmail.com</a></span>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/smitjoshi28" target="_blank">🔗 linkedin.com/in/smitjoshi28</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/smjoshi28" target="_blank">🐙 github.com/smjoshi28</a>
+            </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section class="section">
+            <h2>Summary</h2>
+            <p>AWS Certified Solutions Architect with a Bachelor’s in Computer Science and hands-on experience designing, automating, and deploying secure cloud infrastructure. Proficient in Infrastructure as Code (Terraform), CI/CD pipelines (GitHub Actions), and Containerization (Docker). Proven ability to build high-availability architectures and integrate automated security scanning (Checkov) to deliver production-grade cloud solutions.</p>
+        </section>
+
+        <!-- TECHNICAL SKILLS (grid) -->
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h3>Cloud & AWS</h3>
+                    <p>VPC, EC2, S3, Lambda, IAM, CloudFront, Route 53, DynamoDB, API Gateway, RDS, ALB, ASG, SNS, ACM</p>
+                </div>
+                <div class="skill-cat">
+                    <h3>Infrastructure as Code (IaC)</h3>
+                    <p>Terraform (Modules, State Management, Workspaces), AWS CloudFormation</p>
+                </div>
+                <div class="skill-cat">
+                    <h3>DevOps & Security</h3>
+                    <p>GitHub Actions, Docker, Docker Compose, Checkov (Static Analysis), Git, Bash Scripting</p>
+                </div>
+                <div class="skill-cat">
+                    <h3>Monitoring & Observability</h3>
+                    <p>CloudWatch (Dashboards, Alarms, Logs, Insights)</p>
+                </div>
+                <div class="skill-cat">
+                    <h3>Languages & Databases</h3>
+                    <p>Python, Java, Bash, MySQL</p>
+                </div>
+                <div class="skill-cat">
+                    <h3>Methodologies</h3>
+                    <p>Agile/Scrum, ITIL foundations, DevSecOps, Technical Documentation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL PROJECTS -->
+        <section class="section">
+            <h2>Technical Projects</h2>
+
+            <article class="project">
+                <div class="project-header">
+                    <h3>Production 3-Tier Web Application on AWS</h3>
+                    <span class="date">Nov 2025 – Jan 2026</span>
+                </div>
+                <p class="tools">Tools: Terraform, Checkov, AWS (VPC, EC2, RDS, ALB, Auto Scaling)</p>
+                <ul>
+                    <li>Provisioned a fully automated 3-tier architecture (Web, App, DB) using Terraform, enforcing strict network isolation across public and private subnets within a custom VPC.</li>
+                    <li>Integrated Checkov static analysis in the pre-deployment phase to identify and remediate security misconfigurations in Terraform code.</li>
+                    <li>Configured an Application Load Balancer (ALB) and Auto Scaling Groups (ASG) to ensure high availability and fault tolerance for web traffic.</li>
+                    <li>Deployed a managed Amazon RDS (MySQL) instance in private subnets with automated snapshots and security group-based access control.</li>
+                </ul>
+            </article>
+
+            <article class="project">
+                <div class="project-header">
+                    <h3>Cloud Resume Challenge — Automated AWS Infrastructure</h3>
+                    <span class="date">Aug 2025 – Oct 2025</span>
+                </div>
+                <p class="tools">Tools: Terraform, GitHub Actions, S3, CloudFront, Route 53, ACM</p>
+                <ul>
+                    <li>Orchestrated a secure, serverless static website deployment using Terraform Modules to provision S3 hosting and CloudFront CDN.</li>
+                    <li>Developed a GitHub Actions CI/CD pipeline to automate infrastructure updates and frontend deployments, reducing manual deployment time by 90%.</li>
+                    <li>Secured the delivery layer by enforcing HTTPS via ACM and implementing least-privilege IAM policies for GitHub Action runners.</li>
+                </ul>
+            </article>
+
+            <article class="project">
+                <div class="project-header">
+                    <h3>Multi-Service Application Containerization</h3>
+                    <span class="date">Jan 2026 – Feb 2026</span>
+                </div>
+                <p class="tools">Tools: Docker, Docker Compose, Python, Bash</p>
+                <ul>
+                    <li>Containerized a multi-service Python application using Docker, defining networking, environment variables, and persistent volume mounts via Docker Compose.</li>
+                    <li>Optimized Dockerfile instructions (multi-stage builds and layer caching) to reduce final image size and cut build times by approximately 40%.</li>
+                </ul>
+            </article>
+
+            <article class="project">
+                <div class="project-header">
+                    <h3>AI Document Summarization Web Application</h3>
+                    <span class="date">Feb 2025 – Apr 2025</span>
+                </div>
+                <p class="tools">Tools: Python, Streamlit, Hugging Face, AWS Lambda, S3</p>
+                <ul>
+                    <li>Developed a web application using Streamlit and Hugging Face's BART model to provide automated document summarization.</li>
+                    <li>Leveraged AWS Lambda and S3 to create a cost-effective, serverless backend, eliminating server management overhead.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- EDUCATION & CERTIFICATIONS (two column layout) -->
+        <section class="section edu-certs">
+            <div class="edu">
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p class="meta">Algoma University, Brampton, ON | Graduated Dec 2025</p>
+                    <p class="coursework">Relevant Coursework: Software Engineering, System Design, Unix & Systems Programming, Data Structures, Linux Administration.</p>
+                </div>
+            </div>
+            <div class="certs">
+                <h2>Certifications</h2>
+                <ul class="cert-list">
+                    <li>AWS Certified Solutions Architect – Associate</li>
+                    <li>AWS Certified Cloud Practitioner</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <h4>Designed by <a href='https://smitjoshi.me'>Smit</a> for Cloud Resume Challenge</h4>    
+        <h4>Website views Count: <span id="viewCount">Loading...</span></h4>
+    </footer>
+    <script>
+        const functionUrl = "https://4p2fra2u6huqtvjn6jya2iuigm0pdmmm.lambda-url.us-east-1.on.aws/";
+      
+        async function fetchViewCount() {
+          try {
+            const response = await fetch(functionUrl);
+            const data = await response.json();
+      
+            // Display the view count
+            document.getElementById("viewCount").innerText = data.views;
+          } catch (error) {
+            console.log(error)
+            console.error("Error fetching view count:", error);
+            document.getElementById("viewCount").innerText = "error";
+          }
+        }
+      
+        // Run when the page loads
+        window.onload = fetchViewCount;
+  </script>
+</body>
+</html>
