@@ -66,8 +66,8 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
 
 data "archive_file" "zip_the_python_code" {
   type        = "zip"
-  source_file = "${path.module}/lambda/resumefunc.py"
-  output_path = "${path.module}/lambda/resumefunc.zip"
+  source_file = "${path.module}/Lambda/resumefunc.py"
+  output_path = "${path.module}/Lambda/resumefunc.zip"
 }
 
 resource "aws_lambda_function_url" "url1" {
