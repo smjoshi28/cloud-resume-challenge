@@ -10,29 +10,24 @@ A **production-style, serverless resume website** built on AWS using **Infrastru
 # 🏗️ Architecture Overview
 
 ```mermaid
-graph TD
+sequenceDiagram
+    participant Browser
+    participant CloudFront
+    participant S3
+    participant Lambda
+    participant DynamoDB
 
-A[User Browser] --> B[Route 53]
-B --> C[CloudFront (HTTPS + ACM)]
-C --> D[S3 Bucket (Private)]
-C -.->|OAC| D
+    Browser->>CloudFront: GET cloudresume.smitjoshi.me
+    CloudFront->>S3: Fetch index.html (OAC)
+    S3-->>CloudFront: HTML/CSS/JS
+    CloudFront-->>Browser: Serve static site
 
-A -->|fetch() API| E[Lambda Function URL]
-E --> F[Lambda Function]
-F -->|Atomic Update| G[DynamoDB - View Counter]
-
-H[GitHub Actions] -->|Frontend Deploy| D
-H -->|Terraform Apply| I[Infrastructure]
-
-subgraph AWS (Provisioned via Terraform)
-B
-C
-D
-F
-G
-end
-```
-
+    Browser->>Browser: Execute JS
+    Browser->>Lambda: GET fetch() to Function URL
+    Lambda->>DynamoDB: UpdateItem (atomic +1)
+    DynamoDB-->>Lambda: Updated count
+    Lambda-->>Browser: JSON { views: count }
+    Browser->>Browser: Update DOM with new count
 ---
 
 # ⚙️ Architecture Breakdown
