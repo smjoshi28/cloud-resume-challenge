@@ -11,23 +11,22 @@ A **production-style, serverless resume website** built on AWS using **Infrastru
 
 ```mermaid
 graph TD
+    A[User Browser] --> B[Route 53]
+    B --> C["CloudFront (HTTPS + ACM)"]
+    C --> D["S3 Bucket (Private)"]
+    C -.->|OAC| D
 
-A[User Browser] --> B[Route 53]
-B --> C[CloudFront (HTTPS + ACM)]
-C --> D[S3 Bucket (Private)]
-C -.->|OAC| D
+    A -->|API Call| E[Lambda Function URL]
+    E --> F[Lambda Function]
+    F -->|Atomic Update| G["DynamoDB - View Counter"]
 
-A -->|API Call| E[Lambda Function URL]
-E --> F[Lambda Function]
-F -->|Atomic Update| G[DynamoDB - View Counter]
-
-subgraph AWS (Provisioned via Terraform)
-B
-C
-D
-F
-G
-end
+    subgraph AWS ["AWS (Provisioned via Terraform)"]
+        B
+        C
+        D
+        F
+        G
+    end
 ```
 
 ---
@@ -62,22 +61,21 @@ L-->>U: Return JSON
 
 ```mermaid
 graph TD
+    A[Developer Push to GitHub] --> B[GitHub Actions]
 
-A[Developer Push to GitHub] --> B[GitHub Actions]
+    B --> C[Frontend Pipeline]
+    B --> D[Backend Pipeline]
 
-B --> C[Frontend Pipeline]
-B --> D[Backend Pipeline]
+    C -->|Upload Static Files| E[S3 Bucket]
 
-C -->|Upload Static Files| E[S3 Bucket]
+    D -->|"Run Tests (Pytest + Moto)"| F[Terraform Apply]
+    F --> G[AWS Infrastructure Updated]
 
-D -->|Run Tests (Pytest + Moto)| F[Terraform Apply]
-F --> G[AWS Infrastructure Updated]
-
-subgraph CI/CD
-B
-C
-D
-end
+    subgraph "CI/CD"
+        B
+        C
+        D
+    end
 ```
 
 ---
